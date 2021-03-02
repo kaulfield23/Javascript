@@ -74,6 +74,38 @@ console.log(JSON.stringify(data, null, 2))
 console.log(JSON.parse(toJSON)) //make it to js array type again.
 
 
+// to see if there is a property in object.
+
+const fruit = {
+    red : "apple",
+    green : "grape",
+    yellow : "banana",
+}
+
+if(fruit.red !== undefined) {
+    console.log('it has red property');
+} else {
+    console.log('it doesn\'t have red property');
+}
 
 
-console.clear();
+//it is simple but to make it even more simpler, you can write like this
+
+if(fruit.purple) {
+    console.log('it has purple property')
+} else {
+    console.log('it doesn\'t have purple property');
+}
+
+//set the property
+
+fruit.red = fruit.red !== undefined ? fruit.red : "there is no red fruit";
+fruit.black = fruit.black !== undefined ? fruit.black : "there is no black fruit";
+console.log(fruit);// there was no black property so it sets a black property with "there is no black fruit"
+
+//make it simpler
+
+fruit.silver = fruit.silver || "there is no silver fruit"
+console.log(fruit); // added silver property.
+
+console.clear()
