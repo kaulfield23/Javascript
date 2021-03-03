@@ -37,7 +37,7 @@ let input =`daslf,welr,wet,sdf
 input = input.split('\n'); // dividing by \n
 
 console.log(input)
-input = input.map((value) => value.split(',')); //dividing by ,
+input = input.map((value) => value.split(',')); //dividing by ','
 console.log(input)
 
 
@@ -108,4 +108,80 @@ console.log(fruit);// there was no black property so it sets a black property wi
 fruit.silver = fruit.silver || "there is no silver fruit"
 console.log(fruit); // added silver property.
 
-console.clear()
+
+// you can make plural statement in a one sentence.
+
+let [ai,bi] = [1,2];
+[ai,bi] = [bi,ai]
+console.log(ai,bi)
+
+let arrayA = [1,2,3,4,5]
+const [aa,bb,cc] = arrayA
+console.log(aa,bb,cc) //1,2,3
+
+// take out properties and assign it.
+
+const smartPhone = {
+    name : "galaxy S9",
+    company : "samsung",
+    country : "korea",
+}
+
+const {name, company,country } = smartPhone;
+console.log(`take it out by properties' name
+- ${name}, ${company}`)
+
+const {phoneName = name, land = country} = smartPhone;
+
+console.log(`take out properties with other valueables
+${phoneName},${land}`);
+
+// clone array
+// if you use spread operator, it will clone the array.
+const todoList = ['study js', 'cook dinner'];
+const todoTmr = [...todoList];
+todoTmr.push('sell a book');
+todoList.push('play game');
+
+console.log(todoList,todoTmr)
+
+// but you can also clone the array and add new things.
+
+const todoOnFri = [...todoList,'meet my friend']; // add 
+console.log(todoOnFri)
+
+// using plural spread operator at the same time
+
+const pizzaDough= ['flour','water','tomato sacue'];
+const topping = ['cheese', 'pineapple','mushrooms'];
+
+console.log([...pizzaDough,...topping]); // will be array with 6 length.
+
+// you can also clone object with tha same way.
+
+const minBror = {
+    name : 'HJ',
+    age : 26,
+    live : 'Korea'
+}
+
+const minBrorInfor = {...minBror}
+minBrorInfor.born = "busan";
+minBrorInfor.feature = "cute";
+console.log(minBror)
+console.log(minBrorInfor)
+
+
+// you can change the particular properties from the origin one
+
+const minBrorInforV2 = {
+    ...minBrorInfor,
+    name : "HJ.E",
+    koreanAge : 28,
+}
+
+console.log(minBrorInfor);
+console.log(minBrorInforV2); // but an order is very important in spread operator cause it can overwrite things.
+
+
+console.clear();
