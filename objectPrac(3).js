@@ -184,4 +184,4 @@ console.log(minBrorInfor);
 console.log(minBrorInforV2); // but an order is very important in spread operator cause it can overwrite things.
 
 
-console.clear();
+console.log("ya");
