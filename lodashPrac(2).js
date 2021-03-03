@@ -1,5 +1,9 @@
 'use strict';
 
+console.log(`--------✔️✔️✔️------lodash------✔️✔️✔️--------`);
+
+
+
 
 // using Lodash library and practicing methods.
 const books = [{
@@ -56,5 +60,53 @@ console.log(times); // result : ["hello", "hello", "hello", "hello", "hello"]
 let debounceHej = _.debounce(function() { console.log("Hej")}, 3000);
 debounceHej(); // hej will be coming out after 3 sec later.
 
+//4. _.find
+// you can find the specific object without using iteration.
 
-console.clear();
+let cats = [
+    { name : "moonie", lastname : "Kim", age : 2, feature : "very big"},
+    { name : "ggori", lastname : "Kim", age : 1, feature : "talkative"},
+    { name : "dari", lastname : "Kim", age : 2, feature : "calm"},
+    { name : "maknae", lastname : "Kim", age : 2, feature : "very small"},
+];
+
+const moonie = _.find(cats, { feature : "very big"});
+console.log (moonie)
+console.log(cats)
+
+// you can also use a function to find a specific object which has same value
+
+const ggori = _.find(cats, function(value) {
+    return value.age < 2;
+});
+console.log(ggori);
+
+//5. _.get and _.set .... I don't get it 100% yet.
+
+let birthday = { mybirthday : { august : 23}};
+birthday = _.set(birthday, 'mybirthday.gift[0]', 'food');
+let feature = _.get(cats, "feater", "calm");
+console.log(feature)
+console.log(birthday)
+
+// 6. _.deburr
+// this will turn other languages letter into english letter
+
+console.log(_.deburr("Linköping ligger i östergötland"));
+
+// 7. _.keyBy : very useful funciton to find an object with a specific property.
+
+cats = _.keyBy(cats, "name");
+const maknae = cats["maknae"];
+console.log(maknae)
+console.log(cats)
+let courses = [
+    {name : "english", teacher : "anna", startingDay : "1st Mar"},
+    {name : "webbutveckling 2", teacher : "conny", startingDay : "22nd Feb"},
+    {name : "art", teacher : "june", startingDay : "15st March"},
+];
+
+courses = _.keyBy(courses,"name");
+const englishCourse = courses["english"];
+console.log(englishCourse);
+console.log(`--------------------lodash fin----------------------`);

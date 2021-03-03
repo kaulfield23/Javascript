@@ -1,3 +1,6 @@
+'use strict'
+console.log(`--------✔️✔️✔️------random_number------✔️✔️✔️--------`);
+
 const num = Math.random().toFixed(2);
 
 console.log(`# random number
@@ -15,5 +18,4 @@ console.log(`-random numbers between -25 ~ 25 : `, ((num * 50) - 25).toFixed(0))
 
 console.log(`-random numbers by using Math.floor : `, Math.floor(num * 50 - 25)); // number type.
 
-
-console.clear();
+console.log(`------------random_number Fin--------------`);

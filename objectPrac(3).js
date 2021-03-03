@@ -9,6 +9,9 @@
 //in this code, num can't have function cause it is a primitive type.
 // to make it work, you gotta add prototype.
 
+console.log(`--------✔️✔️✔️------objectPrac------✔️✔️✔️--------`);
+
+
 const numberForKr = 150;
 Number.prototype.kr = function() {
     return this.valueOf() + "kr";
@@ -183,5 +186,6 @@ const minBrorInforV2 = {
 console.log(minBrorInfor);
 console.log(minBrorInforV2); // but an order is very important in spread operator cause it can overwrite things.
 
+console.log(`------------objectPrac Fin--------------`);
 
-console.log("ya");
+console.clear()

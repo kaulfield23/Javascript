@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#">
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
-    <script src = random_number(1).js></script>
-    <script src = lodashPrac(2).js></script>
-    <script src = objectPrac(3).js></script>
-
     <title>Document</title>
-
+    <link rel="shortcut icon" href="#">
+    <script defer src ="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script defer src = random_number(1).js></script>
+    <script defer src = objectPrac(3).js></script>
+    <script defer src = lodashPrac(2).js></script>
     
+    <script>
+        document.addEventListener('DOMContentLoadad', () => {
+        const h1 = (text) => `<h1>${text}</h1>`;
+        document.body.innerHTML += h1("event occured")
+        })
+    </script>
 </head>
+
 <body>
     
 </body>
