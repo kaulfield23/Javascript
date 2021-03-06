@@ -57,14 +57,34 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(text) // now you can add 'text' in body tag.
 
     
-    
-    //creat cat imgs again by using creatElement and appendChild.
-    const cats2 = ["cat1", "cat2", "cat3", "cat4"];
-    cats2.forEach((cat, index) => {
-        const imgC = document.createElement('img');
-        const catImg = `https://placekitten.com/200/300`;
-        imgC.src = catImg;
-        imgC.style.padding = '10px'
-        document.body.appendChild(imgC)
+    const spanA = document.querySelector('#first');
+    const spanB = document.querySelector('#second');
+    const hInSpan = document.createElement('h1');
+    hInSpan.textContent = 'moving h1 tag';
+
+    const toFirst = () => {
+        spanA.appendChild(hInSpan) // add to divA
+        setTimeout(toSecond, 1000) // execute toSecond func after 1sec
+    }
+    const toSecond = () => {
+        spanB.appendChild(hInSpan) // add to divB
+        setTimeout(toFirst, 5000) // execute toFirst func after 5secs
+    }
+    toFirst();
+
+    //removeChild()
+    setTimeout(() =>{
+        const removing = document.querySelector('#remove');
+        removing.parentNode.removeChild(removing);
+    }, 5000)
+
+    // addEventListener()
+
+    let counter = 0;
+    const checkClick = document.querySelector('#clicking');
+    checkClick.addEventListener('click', () => {
+        counter++;
+        checkClick.style.userSelect = 'none';
+        checkClick.textContent = `You clicked ${counter} times`;
     })
 })
