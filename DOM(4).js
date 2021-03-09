@@ -87,4 +87,48 @@ document.addEventListener('DOMContentLoaded', () => {
         checkClick.style.userSelect = 'none';
         checkClick.textContent = `You clicked ${counter} times`;
     })
+
+    // removeEventListener
+
+    let count = 0;
+    let isConnect = false;
+
+    const h1Tag = document.querySelector('#h1Tag');
+    h1Tag.style.userSelect = 'none';
+    const pTag = document.querySelector('#pTag');
+    pTag.style.userSelect = 'none';
+    const connectButton = document.querySelector('#connect');
+    const disconnectButton = document.querySelector('#disconnect');
+
+    
+    const listener = (event) => {
+        h1Tag.textContent = `you clicked ${count++} times`;
+    }
+
+    connectButton.addEventListener('click', () => {
+        if(isConnect === false) {
+            h1Tag.addEventListener('click', listener)
+            pTag.textContent = 'event : connected';
+            isConnect = true;
+        }
+    })
+
+    disconnectButton.addEventListener('click', () => {
+        if(isConnect === true) {
+            h1Tag.removeEventListener('click', listener);
+            pTag.textContent = 'event : disconnected';
+            isConnect = false;
+        }
+    })
+
+    // using keyboard event
+
+    const textarea = document.querySelector('textarea');
+    const h2tag = document.querySelector('#h2tag');
+
+    textarea.addEventListener('keyup', (event) => {
+        const length = textarea.value.length;
+        h2tag.textContent = `the length of what you typed is ${length}`;
+    })
+
 })
