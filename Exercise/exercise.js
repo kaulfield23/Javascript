@@ -49,19 +49,18 @@ textarea.addEventListener('keyup',(event) => {
     announceChar.textContent = `There is ${countChar(inputValue)} of ${inputValue} exists in the sentence`;
 })
 
-//Get a random kitty photo (not finished.)
+//Get a random kitty photo whenever you change the size.
 
-document.addEventListener('DOMContentLoad', () => {
-    const catWidth = document.querySelector('#catWidth').value;
-    const catHeight = document.querySelector('#catHeight').value;
+document.addEventListener('DOMContentLoaded', () => {
     const catButton = document.querySelector('#catButton');
     
-
+    
     catButton.addEventListener('click', () => {
-        const randomCatPhoto = document.createElement('img');
+        const randomCatPhoto = document.querySelector('#randomCatPhoto');
+        const catWidth = document.querySelector('#catWidth').value;
+        const catHeight = document.querySelector('#catHeight').value;
         const catImg = `https://placekitten.com/${catWidth}/${catHeight}`;
         randomCatPhoto.src = catImg;
-        document.body.appendChild(randomCatPhoto)
     })
 })
 
