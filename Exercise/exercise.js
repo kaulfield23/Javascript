@@ -21,7 +21,7 @@ htexts.forEach((value, index) => {
 
 // count how many 'char(input)' exists in your sentence.
 const inputChar = document.querySelector('#input');
-const textarea = document.querySelector('#firstTextArea');
+const textarea = document.querySelector('#inputTextArea');
 const announceChar = document.querySelector('#announceChar');
 
 
@@ -40,12 +40,12 @@ function countChar (inputValue) {
     return howMany;
 }
 inputChar.addEventListener('keyup',(event) => {
-    let howManyChar = countChar(inputChar.value);
-    announceChar.textContent = `There is ${howManyChar} of ${inputChar.value} exists in the sentence`;
+    let inputValue = inputChar.value;
+    announceChar.textContent = `There is ${countChar(inputValue)} of ${inputValue} exists in the sentence`;
 })
 
 textarea.addEventListener('keyup',(event) => {
-    let howManyChar = countChar(inputChar.value);
-    announceChar.textContent = `There is ${howManyChar} of ${inputChar.value} exists in the sentence`;
+    let inputValue = inputChar.value;
+    announceChar.textContent = `There is ${countChar(inputValue)} of ${inputValue} exists in the sentence`;
 })
 
