@@ -1,4 +1,4 @@
-//in DOM(4), I figured out that I had too much global variables. So In here, I try to make it less by using immediately-invoked function expression.
+//in DOM(4), I figured out that I had too much global variables. So In here, I try to make it less.
 
 document.addEventListener('DOMContentLoaded', () => {
     (function () {
@@ -52,5 +52,73 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         
     })()
+
+    // convert inch to cm
+   const inchInput = document.querySelector('#inchInput');
+   const calculateButton = document.querySelector('#calculateButton');
+   const cmResult = document.querySelector('#cmResult');
+   
+    calculateButton.addEventListener('click', () => {
+        const inch = Number(inchInput.value);
+        if(isNaN(inch)) {
+            cmResult.textContent = `enter the number`;
+            return
+        }
+
+        const cm = inch * 2.54;
+        cmResult.textContent = `${cm}cm`
+    })
     
+    
+})
+
+// checking if it is an email form
+document.addEventListener('DOMContentLoaded', () => {
+    const input = document.querySelector('#emailInput');
+    const emailFormAlarm = document.querySelector('#emailFormAlarm');
+    const isEmail = (value) => {
+        return (value.indexOf('@') > 1) && (value.split('@')[1].indexOf('.') > 1)
+    }
+
+    input.addEventListener('keyup', (event) => {
+        const value = event.currentTarget.value
+        if(isEmail(value)) {
+            emailFormAlarm.style.color = "green";
+            emailFormAlarm.textContent = `It is a right form : ${value}`
+        } else {
+            emailFormAlarm.style.color = "red";
+            emailFormAlarm.textContent = `It is a right form : ${value}`
+        }
+    })
+})
+
+//select one thing from options
+document.addEventListener('DOMContentLoaded', () => {
+    const select = document.querySelector('select');
+    const p = document.querySelector('#whatIChose');
+
+    select.addEventListener('change', (event) => {
+        
+        const options = event.currentTarget.options;
+        const index = event.currentTarget.options.selectedIndex;
+
+        p.textContent = `chose : ${options[index].textContent}`
+    })
+
+})
+// select multilple things.
+document.addEventListener('DOMContentLoaded', () => {
+    const select = document.querySelector('#selectMulti');
+    const p = document.querySelector('#whatIChoseMulti')
+
+    select.addEventListener('change', (event) => {
+        const options = event.currentTarget.options
+        const list = [];
+        for(const option of options) {
+            if(option.selected) {
+                list.push(option.textContent)
+            }
+        }
+        p.textContent = `chose : ${list.join(',')}`
+    })
 })
